@@ -1,0 +1,165 @@
+.tea-community-container {
+    max-width: 1200px;
+    margin: 40px auto 30px auto;
+    background: #f8f9fa;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(60, 80, 60, 0.13);
+    padding: 36px 32px 32px 32px;
+    font-family: 'Noto Sans KR', sans-serif;
+    border: 2.5px solid #7ec850; /* 경계선 추가 */
+}
+
+.tea-community-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3a5d3a;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: -1px;
+    border-bottom: 2px solid #4e944f; /* 제목 아래 경계선 */
+    padding-bottom: 10px;
+    background: linear-gradient(90deg, #eafbe6 0%, #f8f9fa 100%);
+    border-radius: 12px 12px 0 0;
+}
+
+.tea-community-write-link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 18px;
+}
+
+.tea-community-write-link {
+    background: linear-gradient(90deg, #7ec850 0%, #4e944f 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 22px;
+    border-radius: 22px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(126, 200, 80, 0.13);
+    transition: background 0.2s, box-shadow 0.2s;
+    border: 1.5px solid #4e944f;
+}
+
+.tea-community-write-link:hover {
+    background: linear-gradient(90deg, #4e944f 0%, #7ec850 100%);
+    box-shadow: 0 4px 16px rgba(126, 200, 80, 0.18);
+    border: 1.5px solid #7ec850;
+}
+
+.tea-community-post-list {
+    margin-bottom: 24px;
+    border-top: 2px solid #b7e4c7; /* 게시글 리스트 위 경계선 */
+    padding-top: 10px;
+}
+
+.tea-community-post {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px rgba(60, 80, 60, 0.10);
+    padding: 18px 20px 14px 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s, border 0.2s;
+    border: 2px solid #eafbe6; /* 게시글 경계선 추가 */
+    position: relative;
+}
+
+.tea-community-post:hover {
+    box-shadow: 0 4px 16px rgba(60, 80, 60, 0.18);
+    border: 2px solid #7ec850; /* hover 시 경계선 강조 */
+}
+
+.tea-community-post-title {
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: #2e4a21;
+    margin-bottom: 7px;
+    letter-spacing: -0.5px;
+    border-bottom: 1.5px solid #eafbe6; /* 게시글 제목 아래 경계선 */
+    padding-bottom: 4px;
+}
+
+.tea-community-post-content {
+    font-size: 1.04rem;
+    color: #444;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    overflow-x: hidden; /* 가로 스크롤/넘침 방지 */
+    box-sizing: border-box;
+}
+
+.tea-community-post-author {
+    font-size: 0.97rem;
+    color: #7a7a5c;
+    text-align: right;
+    border-top: 1px dashed #b7e4c7; /* 작성자 위에 점선 경계선 */
+    padding-top: 6px;
+    margin-top: 10px;
+}
+
+.tea-community-no-posts {
+    color: #b0b0a0;
+    text-align: center;
+    font-size: 1.08rem;
+    margin: 30px 0;
+    border: 1.5px dashed #e0e0e0;
+    border-radius: 8px;
+    padding: 18px 0;
+    background: #f4f7f4;
+}
+
+.tea-community-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.tea-community-page-btn {
+    background: #eafbe6;
+    color: #3a5d3a;
+    border: 1.5px solid #b7e4c7;
+    border-radius: 8px;
+    padding: 7px 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border 0.18s;
+    margin: 0 2px;
+}
+
+.tea-community-page-btn.active,
+.tea-community-page-btn:active {
+    background: #7ec850;
+    color: #fff;
+    font-weight: 700;
+    border: 1.5px solid #4e944f;
+}
+
+.tea-community-page-btn.disabled,
+.tea-community-page-btn:disabled {
+    background: #e0e0e0;
+    color: #b0b0a0;
+    cursor: not-allowed;
+    border: 1.5px solid #e0e0e0;
+}
+
+@media (max-width: 600px) {
+    .tea-community-container {
+        padding: 14px 2vw 18px 2vw;
+        border-width: 1.5px;
+    }
+    .tea-community-title {
+        font-size: 1.3rem;
+        padding-bottom: 6px;
+    }
+    .tea-community-post {
+        padding: 12px 8px 10px 10px;
+        border-width: 1.5px;
+    }
+    .tea-community-write-link {
+        font-size: 0.98rem;
+        padding: 7px 14px;
+    }
+}

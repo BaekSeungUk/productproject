@@ -1,0 +1,132 @@
+html {
+  height: 100%;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(248, 249, 250, 0.97); /* TeaCommunity와 유사한 배경 */
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(60, 80, 60, 0.13), 0 1.5px 8px rgba(0,0,0,0.04);
+  border-radius: 18px;
+  border: 2.5px solid #7ec850; /* TeaCommunity와 동일한 테두리 */
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #3a5d3a; /* TeaCommunity 제목 색상 */
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #4e944f;
+  padding-bottom: 10px;
+  background: linear-gradient(90deg, #eafbe6 0%, #f8f9fa 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #3a5d3a;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 2px solid #b7e4c7;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.3s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.login-box .user-box input:focus {
+  border-bottom: 2px solid #7ec850;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #7a7a5c;
+  pointer-events: none;
+  transition: .4s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input.filled ~ label {
+  top: -20px;
+  left: 0;
+  color: #4e944f;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #4e944f;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+
+.loginButton {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #7ec850 0%, #4e944f 100%);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(126,200,80,0.08);
+  transition: background 0.3s, transform 0.2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.loginButton:hover {
+  background: linear-gradient(90deg, #4e944f 0%, #7ec850 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.logoutButton {
+  width: 100%;
+  padding: 12px 0;
+  background: #fff;
+  color: #4e944f;
+  border: 2px solid #7ec850;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(126,200,80,0.04);
+  transition: background 0.3s, color 0.3s, border 0.3s, transform 0.2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.logoutButton:hover {
+  background: #eafbe6;
+  color: #3a5d3a;
+  border: 2px solid #4e944f;
+  transform: translateY(-2px) scale(1.03);
+}

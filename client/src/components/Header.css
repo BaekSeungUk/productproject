@@ -1,0 +1,289 @@
+.Header {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    background-color: ivory;
+}
+
+.Header > div {
+    display: flex;
+}
+
+.Header .header_center {
+    width: 50%;
+    font-size: 25px;
+    justify-content: center;
+}
+
+.Header .header_left {
+    width: 25%;
+    justify-content: flex-start;
+    font-size: 2rem;
+}
+
+.Header .header_right {
+    width: 25%;
+    justify-content: flex-end;
+    gap: 15px; /* 버튼 사이 간격 */
+    align-items: center;
+}
+
+/* 로그인 시 환영 메시지 스타일 */
+.welcome-msg {
+    background: linear-gradient(90deg, #eafbe6 0%, #b7e4c7 100%);
+    color: #357a38;
+    padding: 10px 22px;
+    border-radius: 22px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(126, 200, 80, 0.08);
+    margin-right: 8px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: welcomeFadeIn 0.7s;
+}
+
+@keyframes welcomeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 로그아웃 버튼 스타일 */
+.logout-btn {
+    background: linear-gradient(90deg, #b7e4c7 0%, #95d5b2 100%);
+    color: #357a38;
+    border: 2px solid #7ec850;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(60, 80, 60, 0.10);
+    position: relative;
+    overflow: hidden;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(90deg, #7ec850 0%, #4e944f 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 25px rgba(126, 200, 80, 0.18);
+}
+
+.logout-btn:active {
+    transform: translateY(0) scale(1);
+    transition: transform 0.1s;
+}
+
+/* 멋진 홈라벨 스타일 */
+.home-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.logo-container {
+    position: relative;
+    width: 150px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo-overlay {
+    display: none;
+}
+
+.tea-leaf {
+    display: none;
+}
+
+.header_left {
+    position: relative;
+    cursor: pointer;
+    color: #3a5d3a;
+    transition: color 0.2s;
+}
+
+.header_left > div {
+    font-size: 1.3em;
+}
+
+.menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(60, 80, 60, 0.13);
+    z-index: 10;
+    min-width: 200px;
+    border: 2px solid #b7e4c7;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.header_left:hover .menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.header_left:hover {
+    color: #7ec850;
+}
+
+.menu-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eafbe6;
+    color: #3a5d3a;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    background: transparent;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background: #eafbe6;
+    color: #4e944f;
+}
+
+.menu-item span {
+    cursor: pointer;
+}
+
+/* 서브메뉴 스타일 */
+.has-submenu {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(60, 80, 60, 0.13);
+    min-width: 150px;
+    border: 2px solid #b7e4c7;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.has-submenu:hover .submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.submenu li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eafbe6;
+    color: #3a5d3a;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu li:hover {
+    background: #eafbe6;
+    color: #4e944f;
+}
+
+/* 인증 버튼 스타일 */
+.auth-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.login-btn {
+    background: transparent;
+    color: #3a5d3a;
+    border: 2px solid #7ec850;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    background: linear-gradient(90deg, #7ec850 0%, #4e944f 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(126, 200, 80, 0.13);
+}
+
+.register-btn {
+    background: transparent;
+    color: #3a5d3a;
+    border: 2px solid #7ec850;
+    font-weight: 600;
+}
+
+.register-btn:hover {
+    background: linear-gradient(90deg, #7ec850 0%, #4e944f 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(126, 200, 80, 0.13);
+}
+
+/* 버튼 활성 상태 */
+.auth-btn:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .header_right {
+        gap: 10px;
+    }
+    
+    .auth-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}

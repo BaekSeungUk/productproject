@@ -1,0 +1,98 @@
+.write-container {
+    max-width: 1200px;
+    margin: 40px auto 30px auto;
+    padding: 36px 32px 32px 32px;
+    background: #f8f9fa;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(60, 80, 60, 0.13);
+    border: 2.5px solid #7ec850; /* TeaCommunity와 동일한 테두리 */
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.write-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3a5d3a;
+    margin-bottom: 24px;
+    text-align: center;
+    letter-spacing: -1px;
+    border-bottom: 2px solid #4e944f;
+    padding-bottom: 10px;
+    background: linear-gradient(90deg, #eafbe6 0%, #f8f9fa 100%);
+    border-radius: 12px 12px 0 0;
+}
+
+.write-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.write-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.write-label {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+.write-input,
+.write-textarea {
+    padding: 12px 14px;
+    border: 1.5px solid #b7e4c7;
+    border-radius: 7px;
+    font-size: 1rem;
+    background: #eafbe6;
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    resize: none;
+}
+
+.write-input:focus,
+.write-textarea:focus {
+    border-color: #7ec850;
+    box-shadow: 0 0 0 2px #eafbe6;
+    background: #fff;
+}
+
+.write-textarea {
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.write-submit-btn {
+    margin-top: 10px;
+    padding: 13px 0;
+    background: linear-gradient(90deg, #7ec850 0%, #4e944f 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(126,200,80,0.13);
+    transition: background 0.2s, transform 0.1s;
+}
+
+.write-submit-btn:hover,
+.write-submit-btn:focus {
+    background: linear-gradient(90deg, #4e944f 0%, #7ec850 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 700px) {
+    .write-container {
+        padding: 14px 2vw 18px 2vw;
+        border-width: 1.5px;
+    }
+    .write-title {
+        font-size: 1.3rem;
+        padding-bottom: 6px;
+    }
+}

@@ -1,0 +1,151 @@
+/* About 페이지 꾸미기 - 더 고급스럽고 따뜻한 느낌, TeaCommunity와 유사한 테두리 및 색상 적용 */
+
+.about-container {
+    max-width: 1200px;
+    margin: 48px auto 48px auto;
+    padding: 3rem 2rem;
+    background: #f8f9fa;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(60, 80, 60, 0.13);
+    border: 2.5px solid #7ec850; /* TeaCommunity와 동일한 테두리 */
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, #eafbe6 60%, transparent 100%);
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.about-container h1 {
+    text-align: center;
+    font-size: 2.7rem;
+    color: #3a5d3a;
+    margin-bottom: 2.2rem;
+    letter-spacing: 3px;
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    text-shadow: 0 2px 8px #eafbe6, 0 1px 0 #7ec850;
+    position: relative;
+    z-index: 1;
+    border-bottom: 2px solid #4e944f;
+    padding-bottom: 10px;
+    background: linear-gradient(90deg, #eafbe6 0%, #f8f9fa 100%);
+    border-radius: 12px 12px 0 0;
+}
+
+.about-container h2 {
+    color: #4e944f;
+    margin-top: 2.7rem;
+    margin-bottom: 1.1rem;
+    font-size: 1.45rem;
+    font-weight: 700;
+    border-left: 5px solid #7ec850;
+    padding-left: 1rem;
+    background: linear-gradient(90deg, #eafbe6 70%, transparent 100%);
+    font-family: 'Noto Serif KR', serif;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 0 #eafbe6;
+    position: relative;
+    z-index: 1;
+}
+
+.about-container p {
+    color: #3a5d3a;
+    font-size: 1.13rem;
+    line-height: 2.05;
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: rgba(234, 251, 230, 0.7);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 1px 4px rgba(126, 200, 80, 0.07);
+    position: relative;
+    z-index: 1;
+}
+
+.about-container ul {
+    list-style: none;
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+    background: #eafbe6;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(126, 200, 80, 0.05);
+    border: 2px solid #b7e4c7;
+    position: relative;
+    z-index: 1;
+}
+
+.about-container li {
+    position: relative;
+    font-size: 1.11rem;
+    color: #3a5d3a;
+    margin-bottom: 0.7rem;
+    padding-left: 2rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    z-index: 1;
+    transition: background 0.2s;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.about-container li::before {
+    content: "🌿";
+    position: absolute;
+    left: 0.3rem;
+    top: 0.1rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: #7ec850;
+    opacity: 0.85;
+}
+
+.about-container li strong {
+    color: #4e944f;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.about-container li:hover {
+    background: #f3f3e6;
+}
+
+@media (max-width: 900px) {
+    .about-container {
+        padding: 2rem 0.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-container {
+        padding: 1.1rem 0.2rem;
+        border-radius: 12px;
+    }
+    .about-container h1 {
+        font-size: 1.45rem;
+        margin-bottom: 1.1rem;
+    }
+    .about-container h2 {
+        font-size: 1.02rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        padding-left: 0.5rem;
+    }
+    .about-container p, .about-container li {
+        font-size: 0.97rem;
+        padding: 0.5rem 0.5rem;
+    }
+    .about-container ul {
+        margin-left: 0.5rem;
+        margin-bottom: 1rem;
+        padding-left: 0.2rem;
+    }
+}
