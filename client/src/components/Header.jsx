@@ -1,9 +1,12 @@
- import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import teaLogo from '../assets/tealogo.png';
 import { useContext, useEffect } from "react";
 import axios from 'axios';
 import UserContext from '../Context/UserContext';
+
+// .env에서 백엔드 API URL을 불러옵니다.
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Header = () => {
     const { isLogin, user, setIsLogin, setUser } = useContext(UserContext);
@@ -11,16 +14,16 @@ const Header = () => {
 
     const accessToken = () => {
         axios({
-            url: "http://localhost:5000/accesstoken",
+            url: `${API_URL}/accesstoken`,
             method: "GET",
             withCredentials: true,
         });
     };
 
     // 로그아웃 시 UserContext의 값도 초기화
-     const logout = () => {
+    const logout = () => {
         axios({
-            url: "http://localhost:5000/auth/logout",
+            url: `${API_URL}/auth/logout`,
             method: "POST",
             withCredentials: true,
         }).then((result) => {
@@ -32,34 +35,32 @@ const Header = () => {
         });
     };
 
-     useEffect(() => {
+    useEffect(() => {
         try {
-          axios({
-            url: "http://localhost:5000/auth/success",
-            method: "GET",
-            withCredentials: true,
-          })
-            .then((result) => {
-              if (result.data) {
-                setIsLogin(true);
-                setUser(result.data);
-              }
+            axios({
+                url: `${API_URL}/auth/success`,
+                method: "GET",
+                withCredentials: true,
             })
-            .catch((error) => {
-              console.log(error);
-            });
+                .then((result) => {
+                    if (result.data) {
+                        setIsLogin(true);
+                        setUser(result.data);
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
     }, [isLogin]);
-
-
 
     return (
         <header className='Header'>
             <div className='header_left'>
-                 <div>☰</div>
-                 <ul className="menu">
+                <div>☰</div>
+                <ul className="menu">
                     <li className="menu-item" onClick={() => navigate("/about")}>
                         <span>차에 대하여</span>
                     </li>

@@ -3,6 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import UserContext from "../Context/UserContext";
 import axios from "axios";
 
+// .env에서 백엔드 API URL을 불러옵니다.
+const API_URL = import.meta.env.REACT_APP_API_URL;
+
 const BoardEdit = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -19,7 +22,7 @@ const BoardEdit = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get("http://localhost:5000/board/list", {
+                const response = await axios.get(`${API_URL}/board/list`, {
                     withCredentials: true,
                 });
                 const boards = response.data.boards || [];
@@ -56,7 +59,7 @@ const BoardEdit = () => {
             setLoading(true);
             setError(null);
             await axios.put(
-                `http://localhost:5000/board/edit/${id}`,
+                `${API_URL}/board/edit/${id}`,
                 {
                     title,
                     content,

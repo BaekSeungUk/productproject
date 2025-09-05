@@ -6,7 +6,8 @@ import Header from "../components/Header"
 import HorizontalScrollSection from "../components/HorizontalScrollSection";
 import './Home.css';
 
-
+// .env 파일에서 API URL을 불러옴
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Home = () => {
     const { isLogin, user, setIsLogin, setUser } = useContext(UserContext);
@@ -14,16 +15,15 @@ const Home = () => {
 
     const accessToken = () => {
         axios({
-            url: "http://localhost:5000/accesstoken",
+            url: `${API_URL}/accesstoken`,
             method: "GET",
             withCredentials: true,
         });
     };
 
-
     const logout = () => {
         axios({
-            url: "http://localhost:5000/auth/logout",
+            url: `${API_URL}/auth/logout`,
             method: "POST",
             withCredentials: true,
         }).then((result) => {
@@ -36,7 +36,7 @@ const Home = () => {
     useEffect(() => {
         // try {
         //   axios({
-        //     url: "http://localhost:5000/auth/success",
+        //     url: `${API_URL}/auth/success`,
         //     method: "GET",
         //     withCredentials: true,
         //   })

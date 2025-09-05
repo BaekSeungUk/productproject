@@ -4,6 +4,9 @@ import './Write.css';
 import UserContext from "../Context/UserContext";
 import axios from "axios";
 
+// .env 파일에서 API URL을 불러옵니다.
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Write = () => {
     const { user } = useContext(UserContext);
     const [title, setTitle] = useState("");
@@ -31,7 +34,7 @@ const Write = () => {
 
         try {
             const response = await axios({
-                url: "http://localhost:5000/board/write",
+                url: `${API_URL}/board/write`,
                 method: "POST",
                 withCredentials: true, // 쿠키 인증 필요시
                 headers: {

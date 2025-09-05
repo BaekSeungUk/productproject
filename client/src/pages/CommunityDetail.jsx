@@ -1,8 +1,11 @@
- import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import './CommunityDetail.css'
 import axios from "axios";
 import UserContext from '../Context/UserContext';
+
+// .env 파일에서 API URL을 불러옴
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CommunityDetail = () => {
     const { id } = useParams();
@@ -27,7 +30,7 @@ const CommunityDetail = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get("http://localhost:5000/board/list", {
+                const response = await axios.get(`${API_URL}/board/list`, {
                     withCredentials: true,
                 });
                 const boards = response.data.boards || [];
@@ -55,7 +58,7 @@ const CommunityDetail = () => {
             setCommentError(null);
             try {
                 // 댓글 API 엔드포인트 예시: /board/:id/comments
-                const response = await axios.get(`http://localhost:5000/board/${id}/comments`, {
+                const response = await axios.get(`${API_URL}/board/${id}/comments`, {
                     withCredentials: true,
                 });
                 setComments(response.data.comments || []);
@@ -100,7 +103,7 @@ const CommunityDetail = () => {
         }
         setDeleting(true);
         try {
-            await axios.delete(`http://localhost:5000/board/${id}`, {
+            await axios.delete(`${API_URL}/board/${id}`, {
                 withCredentials: true,
                 data: { user_id: user.user_id },
             });
@@ -132,13 +135,13 @@ const CommunityDetail = () => {
         try {
             // user_id를 함께 전송
             await axios.post(
-                `http://localhost:5000/board/${id}/comments`,
+                `${API_URL}/board/${id}/comments`,
                 { content: newComment, user_id: user.user_id },
                 { withCredentials: true }
             );
             setNewComment("");
             // 댓글 새로고침
-            const response = await axios.get(`http://localhost:5000/board/${id}/comments`, {
+            const response = await axios.get(`${API_URL}/board/${id}/comments`, {
                 withCredentials: true,
             });
             setComments(response.data.comments || []);
@@ -174,12 +177,12 @@ const CommunityDetail = () => {
         }
         setCommentDeletingId(commentId);
         try {
-            await axios.delete(`http://localhost:5000/board/${id}/comments/${commentId}`, {
+            await axios.delete(`${API_URL}/board/${id}/comments/${commentId}`, {
                 withCredentials: true,
                 data: { user_id: user.user_id },
             });
             // 댓글 새로고침
-            const response = await axios.get(`http://localhost:5000/board/${id}/comments`, {
+            const response = await axios.get(`${API_URL}/board/${id}/comments`, {
                 withCredentials: true,
             });
             setComments(response.data.comments || []);

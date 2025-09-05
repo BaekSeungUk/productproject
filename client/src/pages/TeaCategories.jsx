@@ -3,6 +3,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import './TeaCategories.css'
 import axios from "axios";
 
+// .env 파일에서 API URL을 불러옴
+const API_URL = import.meta.env.VITE_API_URL;
+
 const teaBenefits = [
     "항산화 작용으로 노화 방지",
     "카페인 함유로 피로 회복 및 집중력 향상",
@@ -41,7 +44,7 @@ const TeaCategories = () => {
             setLoading(true);
             setError(null);
             try {
-                const res = await axios.get("http://localhost:5000/tea/list", {
+                const res = await axios.get(`${API_URL}/tea/list`, {
                     withCredentials: true
                 });
                 const data = res.data;

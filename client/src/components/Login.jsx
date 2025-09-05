@@ -5,6 +5,9 @@ import "./Login.css"
 import { useNavigate } from "react-router-dom";
 import UserContext from "../Context/UserContext";
 
+// .env 파일에서 API URL을 불러옵니다.
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const { setIsLogin, setUser } = useContext(UserContext);
   const [email, setEmail] = useState('');
@@ -22,7 +25,7 @@ const Login = () => {
 
     try {
       const result = await axios({
-        url: "http://localhost:5000/auth/login",
+        url: `${API_URL}/auth/login`,
         method: "POST",
         withCredentials: true,
         data: {

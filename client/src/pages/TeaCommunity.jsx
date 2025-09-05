@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import CommunityDetail from "./CommunityDetail";
 import axios from "axios";
 
+// .env 파일에서 API URL을 불러옴
+const API_URL = import.meta.env.VITE_API_URL;
+
 const PAGE_SIZE = 5; // 한 페이지에 보여줄 게시글 수
 const TOTAL_PAGES = 10; // 10페이지까지만
 
@@ -22,7 +25,7 @@ const TeaCommunity = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get("http://localhost:5000/board/list", {
+                const response = await axios.get(`${API_URL}/board/list`, {
                     withCredentials: true,
                 });
                 // 서버에서 boards 테이블의 컬럼명에 맞게 매핑

@@ -3,6 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// .env 파일에서 API URL을 불러옵니다.
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -20,7 +23,7 @@ const Register = () => {
         }
 
         axios({
-            url: "http://localhost:5000/auth/register",
+            url: `${API_URL}/auth/register`,
             method: "POST",
             withCredentials: true,
             data: {

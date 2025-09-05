@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './TeaTools.css'
 import axios from "axios";
+// .env 파일에서 API URL을 불러옴
+const API_URL = import.meta.env.VITE_API_URL;
 
 const TeaTools = () => {
     const [teaTools, setTeaTools] = useState([]);
@@ -11,7 +13,7 @@ const TeaTools = () => {
         // axios를 사용하므로 함수명도 axios 스타일로 변경
         const getTeaTools = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/tea/tools', {
+                const response = await axios.get(`${API_URL}/tea/tools`, {
                     withCredentials: true
                 });
                 setTeaTools(response.data.teaTools);

@@ -21,7 +21,7 @@ app.use(cookieParser()); // 클라이언트 요청 객체에 첨부된 쿠키 �
 
 // CORS 설정
 app.use(cors({
-    origin: 'http://localhost:5173', // 프론트엔드 요청 허용
+    origin: 'https://teaworld.vercel.app', // 프론트엔드 요청 허용
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // 허용할 HTTP 메서드 지정
     credentials: true, // 요청과 함께 쿠키 전송 허용
 }));
