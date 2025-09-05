@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './TeaTools.css'
 import axios from "axios";
 // .env 파일에서 API URL을 불러옴
-const API_URL = import.meta.env.NEXT_PUBLIC_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const TeaTools = () => {
     const [teaTools, setTeaTools] = useState([]);

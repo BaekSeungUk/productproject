@@ -4,7 +4,7 @@ import './TeaCategories.css'
 import axios from "axios";
 
 // .env 파일에서 API URL을 불러옴
-const API_URL = import.meta.env.NEXT_PUBLIC_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const teaBenefits = [
     "항산화 작용으로 노화 방지",
@@ -44,7 +44,7 @@ const TeaCategories = () => {
             setLoading(true);
             setError(null);
             try {
-                const res = await axios.get(`https://productproject-b031.onrender.com/tea/list`, {
+                const res = await axios.get(`${API_URL}/tea/list`, {
                     withCredentials: true
                 });
                 const data = res.data;
