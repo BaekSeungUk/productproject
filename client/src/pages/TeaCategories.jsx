@@ -44,7 +44,7 @@ const TeaCategories = () => {
             setLoading(true);
             setError(null);
             try {
-                const res = await axios.get(`${API_URL}/tea/list`, {
+                const res = await axios.get(`https://productproject-b031.onrender.com/tea/list`, {
                     withCredentials: true
                 });
                 const data = res.data;
