@@ -7,7 +7,7 @@ import HorizontalScrollSection from "../components/HorizontalScrollSection";
 import './Home.css';
 
 // .env 파일에서 API URL을 불러옴
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.NEXT_PUBLIC_API_URL;
 
 const Home = () => {
     const { isLogin, user, setIsLogin, setUser } = useContext(UserContext);

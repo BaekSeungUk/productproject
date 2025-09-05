@@ -6,7 +6,7 @@ import CommunityDetail from "./CommunityDetail";
 import axios from "axios";
 
 // .env 파일에서 API URL을 불러옴
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.NEXT_PUBLIC_API_URL;
 
 const PAGE_SIZE = 5; // 한 페이지에 보여줄 게시글 수
 const TOTAL_PAGES = 10; // 10페이지까지만

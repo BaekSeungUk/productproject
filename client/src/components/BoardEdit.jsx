@@ -4,7 +4,7 @@ import UserContext from "../Context/UserContext";
 import axios from "axios";
 
 // .env에서 백엔드 API URL을 불러옵니다.
-const API_URL = import.meta.env.REACT_APP_API_URL;
+const API_URL = import.meta.env.NEXT_PUBLIC_API_URL;
 
 const BoardEdit = () => {
     const { id } = useParams();

@@ -6,7 +6,7 @@ import axios from 'axios';
 import UserContext from '../Context/UserContext';
 
 // .env에서 백엔드 API URL을 불러옵니다.
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.NEXT_PUBLIC_API_URL;
 
 const Header = () => {
     const { isLogin, user, setIsLogin, setUser } = useContext(UserContext);

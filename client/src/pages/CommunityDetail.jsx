@@ -5,7 +5,7 @@ import axios from "axios";
 import UserContext from '../Context/UserContext';
 
 // .env 파일에서 API URL을 불러옴
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.NEXT_PUBLIC_API_URL;
 
 const CommunityDetail = () => {
     const { id } = useParams();
