@@ -116,13 +116,13 @@ router.post('/login', async (req, res) => {
         res.cookie('accessToken', accessToken, {
             secure: process.env.NODE_ENV === 'production', // production 환경에서는 secure 사용
             httpOnly: true,
-            sameSite: 'Lax', // 필요에 따라 조정: 'Strict', 'Lax', 'None'
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
         });
 
         res.cookie('refreshToken', refreshToken, {
             secure: process.env.NODE_ENV === 'production',
             httpOnly: true,
-            sameSite: 'Lax',
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
         });
 
         res.status(200).json({
@@ -176,12 +176,12 @@ router.post('/logout', (req, res) => {
         res.clearCookie('accessToken', {
             secure: process.env.NODE_ENV === 'production',
             httpOnly: true,
-            sameSite: 'Lax',
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
         });
         res.clearCookie('refreshToken', {
             secure: process.env.NODE_ENV === 'production',
             httpOnly: true,
-            sameSite: 'Lax',
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
         });
         res.status(200).json('로그아웃 성공');
     } catch (error) {
