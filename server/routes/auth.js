@@ -82,10 +82,10 @@ router.post('/login', async (req, res) => {
         const userInfo = await getUserByEmail(email);
 
         if (!userInfo) {
-            return res.status(403).json("유효하지 않은 자격 증명"); // 보안을 위해 일반적인 오류 메시지 사용
+            return res.status(403).json("유효하지 않은 자격 증명");
         }
 
-        // 제공된 비밀번호와 DB에서 가져온 해시된 비밀번호 비교
+        // 비밀번호 검증
         const isPasswordValid = await bcrypt.compare(password, userInfo.passwordhash);
 
         if (!isPasswordValid) {
@@ -112,20 +112,34 @@ router.post('/login', async (req, res) => {
             issuer: 'About Tech',
         });
 
-        // Token 전송
+        // 배포 환경에서 쿠키 문제 해결을 위해 옵션을 명확히 지정
+        // 특히 sameSite: 'None', secure: true가 필요 (https 환경)
+        // 개발 환경에서는 Lax/false로 설정
+        const isProd = process.env.NODE_ENV === 'production';
+
+        // 도메인 명시적으로 지정 (Vercel 등에서 cross-device 문제 방지)
+        // 실제 배포 도메인에 맞게 수정 필요
+        const cookieDomain = isProd ? '.teaworld.vercel.app' : undefined;
+
         res.cookie('accessToken', accessToken, {
             path: '/',
-            secure: process.env.NODE_ENV === 'production', // production 환경에서는 secure 사용
+            secure: isProd, // 배포 환경에서는 true
             httpOnly: true,
-            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+            sameSite: isProd ? 'None' : 'Lax', // 배포 환경에서는 None
+            domain: cookieDomain,
         });
 
         res.cookie('refreshToken', refreshToken, {
             path: '/',
-            secure: process.env.NODE_ENV === 'production',
+            secure: isProd,
             httpOnly: true,
-            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+            sameSite: isProd ? 'None' : 'Lax',
+            domain: cookieDomain,
         });
+
+        // CORS preflight 및 쿠키 전달 문제 방지용 헤더 추가
+        // 실제로는 서버 index.js에서 credentials: true, origin 명확히 지정 필요
+        // res.setHeader('Access-Control-Allow-Credentials', 'true');
 
         res.status(200).json({
             message: "로그인 성공",
@@ -158,8 +172,9 @@ router.get('/success', async (req, res) => {
             return res.status(404).json("사용자를 찾을 수 없습니다.");
         }
 
-        const { password, ...others } = userData;
-        res.status(200).json(others); // 비밀번호를 제외한 사용자 데이터 반환
+        // password 필드가 passwordhash로 저장되어 있을 수 있으니, passwordhash를 제외
+        const { password, passwordhash, ...others } = userData;
+        res.status(200).json(others);
     } catch (error) {
         console.error('loginSuccess 중 오류 발생:', error);
         if (error instanceof jwt.TokenExpiredError) {
